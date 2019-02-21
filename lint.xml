@@ -3,6 +3,6 @@
     <issue id="KotlinPropertyAccess" severity="error"/>
     <issue id="LambdaLast" severity="error"/>
     <issue id="NoHardKeywords" severity="error"/>
-    <issue id="UnknownNullness" severity="error"/>
+    <issue id="UnknownNullness" severity="ignore"/>
     <issue id="SyntheticAccessor" severity="error"/>
 </lint>
