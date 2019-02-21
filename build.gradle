@@ -44,10 +44,10 @@ ext {
 
     FLAVOR_NAME = flavorName()
 
-    SITE_URL = 'https://github.com/v7lin/android-mobile-push'
-    GIT_URL = 'https://github.com/v7lin/android-mobile-push.git'
+    SITE_URL = 'https://github.com/v7lin/android-mobile-analytics'
+    GIT_URL = 'https://github.com/v7lin/android-mobile-analytics.git'
     ISSUE_SYSTEM = 'GitHub'
-    ISSUE_TRACKER_URL = 'https://github.com/v7lin/android-mobile-push/issues'
+    ISSUE_TRACKER_URL = 'https://github.com/v7lin/android-mobile-analytics/issues'
 
     LICENSE_APACHE_NAME = 'The Apache Software License, Version 2.0'
     LICENSE_APACHE_URL = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
