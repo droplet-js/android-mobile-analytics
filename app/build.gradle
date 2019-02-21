@@ -9,6 +9,12 @@ android {
         targetCompatibility targetCompatibilityVersion
     }
 
+    lintOptions {
+        textOutput 'stdout'
+        textReport true
+        lintConfig rootProject.file('lint.xml')
+    }
+
     defaultConfig {
         applicationId "io.github.v7lin.mobileanalytics"
         minSdkVersion androidMinSdkVersion
@@ -42,6 +48,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "androidx.annotation:annotation:${androidxAnnotationVersion}"
 
     if (PUBLISH_TO_JFROG || PUBLISH_TO_JCENTER) {
         baiduImplementation "${GROUP_ID}:mobile-analytics-baidu-android:${VERSION_NAME}"
