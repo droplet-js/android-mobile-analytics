@@ -1,0 +1,96 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: runmymind/docker-android-sdk
+  volumes:
+  - name: gradle
+    path: /root/.gradle
+  commands:
+  - ./gradlew :mobile-analytics-android:clean :mobile-analytics-android:build
+  - ./gradlew :app:clean :app:build
+
+#- name: snapshot-baidu
+#  image: runmymind/docker-android-sdk
+#  volumes:
+#  - name: gradle
+#    path: /root/.gradle
+#  environment:
+#    PUBLISH_TO_JFROG: true
+#    BINTRAY_USER:
+#      from_secret: BINTRAY_USER
+#    BINTRAY_API_KEY:
+#      from_secret: BINTRAY_API_KEY
+#    VERSION_CODE: ${DRONE_BUILD_NUMBER}
+#    VERSION_NAME: 0.0.1-SNAPSHOT
+#    FLAVOR_NAME: baidu
+#  commands:
+#  - ./gradlew :mobile-analytics-android:clean :mobile-analytics-android:install :mobile-analytics-android:artifactoryPublish
+#  when:
+#    event:
+#    - push
+
+#- name: snapshot-talkingdata
+#  image: runmymind/docker-android-sdk
+#  volumes:
+#  - name: gradle
+#    path: /root/.gradle
+#  environment:
+#    PUBLISH_TO_JFROG: true
+#    BINTRAY_USER:
+#      from_secret: BINTRAY_USER
+#    BINTRAY_API_KEY:
+#      from_secret: BINTRAY_API_KEY
+#    VERSION_CODE: ${DRONE_BUILD_NUMBER}
+#    VERSION_NAME: 0.0.1-SNAPSHOT
+#    FLAVOR_NAME: talkingdata
+#  commands:
+#  - ./gradlew :mobile-analytics-android:clean :mobile-analytics-android:install :mobile-analytics-android:artifactoryPublish
+#  when:
+#    event:
+#    - push
+
+- name: release-baidu
+  image: runmymind/docker-android-sdk
+  volumes:
+  - name: gradle
+    path: /root/.gradle
+  environment:
+    PUBLISH_TO_JCENTER: true
+    BINTRAY_USER:
+      from_secret: BINTRAY_USER
+    BINTRAY_API_KEY:
+      from_secret: BINTRAY_API_KEY
+    VERSION_CODE: ${DRONE_BUILD_NUMBER}
+    VERSION_NAME: 0.0.1
+    FLAVOR_NAME: baidu
+  commands:
+  - ./gradlew :mobile-analytics-android:clean :mobile-analytics-android:install :mobile-analytics-android:bintrayUpload
+  when:
+    event:
+    - tag
+
+- name: release-talkingdata
+  image: runmymind/docker-android-sdk
+  volumes:
+  - name: gradle
+    path: /root/.gradle
+  environment:
+    PUBLISH_TO_JCENTER: true
+    BINTRAY_USER:
+      from_secret: BINTRAY_USER
+    BINTRAY_API_KEY:
+      from_secret: BINTRAY_API_KEY
+    VERSION_CODE: ${DRONE_BUILD_NUMBER}
+    VERSION_NAME: 0.0.1
+    FLAVOR_NAME: talkingdata
+  commands:
+  - ./gradlew :mobile-analytics-android:clean :mobile-analytics-android:install :mobile-analytics-android:bintrayUpload
+  when:
+    event:
+    - tag
+
+volumes:
+- name: gradle
+  temp: {}

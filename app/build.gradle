@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
+
+    compileOptions {
+        sourceCompatibility sourceCompatibilityVersion
+        targetCompatibility targetCompatibilityVersion
+    }
+
+    defaultConfig {
+        applicationId "io.github.v7lin.mobileanalytics"
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode VERSION_CODE
+        versionName "${VERSION_NAME}"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions 'default'
+
+    productFlavors {
+        baidu {
+            dimension 'default'
+            matchingFallbacks = ['baidu']
+        }
+        talkingdata {
+            dimension 'default'
+            matchingFallbacks = ['talkingdata']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    if (PUBLISH_TO_JFROG || PUBLISH_TO_JCENTER) {
+        baiduImplementation "${GROUP_ID}:mobile-analytics-baidu-android:${VERSION_NAME}"
+        talkingdataImplementation "${GROUP_ID}:mobile-analytics-talkingdata-android:${VERSION_NAME}"
+    } else {
+        implementation project(':mobile-analytics-android')
+    }
+
+    testImplementation "junit:junit:${junitVersion}"
+    androidTestImplementation "androidx.test:runner:${runnerVersion}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${espressoVersion}"
+}
