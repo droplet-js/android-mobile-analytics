@@ -121,6 +121,7 @@ subprojects {
         androidxAnnotationVersion = '1.0.0'
 
         baiduAnalyticsAndroidVersion = '1.0.0'
+        talkingdataAnalyticsAndroidVersion = '1.0.0'
 
         // ---
 
