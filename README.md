@@ -1,8 +1,12 @@
 # android-mobile-analytics
 
 [![Build Status](https://cloud.drone.io/api/badges/v7lin/android-mobile-analytics/status.svg)](https://cloud.drone.io/v7lin/android-mobile-analytics)
-[baidu ![Download](https://api.bintray.com/packages/v7lin/maven/mobile-analytics-baidu-android/images/download.svg) ](https://bintray.com/v7lin/maven/mobile-analytics-baidu-android/_latestVersion)
-[talkingdata ![Download](https://api.bintray.com/packages/v7lin/maven/mobile-analytics-talkingdata-android/images/download.svg) ](https://bintray.com/v7lin/maven/mobile-analytics-talkingdata-android/_latestVersion)
+
+## mobile-analytics-baidu-android
+[ ![Download](https://api.bintray.com/packages/v7lin/maven/mobile-analytics-baidu-android/images/download.svg) ](https://bintray.com/v7lin/maven/mobile-analytics-baidu-android/_latestVersion)
+
+## mobile-analytics-talkingdata-android
+[ ![Download](https://api.bintray.com/packages/v7lin/maven/mobile-analytics-talkingdata-android/images/download.svg) ](https://bintray.com/v7lin/maven/mobile-analytics-talkingdata-android/_latestVersion)
 
 ### snapshot
 
