@@ -49,8 +49,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "androidx.annotation:annotation:${androidxAnnotationVersion}"
-
     if (PUBLISH_TO_JFROG || PUBLISH_TO_JCENTER) {
         baiduImplementation "${GROUP_ID}:mobile-analytics-baidu-android:${VERSION_NAME}"
         talkingdataImplementation "${GROUP_ID}:mobile-analytics-talkingdata-android:${VERSION_NAME}"
