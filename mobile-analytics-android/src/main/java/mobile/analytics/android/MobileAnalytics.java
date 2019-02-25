@@ -7,8 +7,7 @@ public abstract class MobileAnalytics {
     protected final Context context;
 
     public MobileAnalytics(Context context) {
-        this.context = context.getApplicationContext() != null
-                ? context.getApplicationContext() : context;
+        this.context = context.getApplicationContext() != null ? context.getApplicationContext() : context;
     }
 
     public abstract void startWork(String appKey, String appChannel, boolean enableDebug);
