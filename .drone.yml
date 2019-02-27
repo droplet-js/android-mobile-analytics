@@ -36,6 +36,8 @@ steps:
   commands:
   - ./gradlew :mobile-analytics-android:clean :mobile-analytics-android:install :mobile-analytics-android:artifactoryPublish
   when:
+    branch:
+    - master
     event:
     - push
 
@@ -56,6 +58,8 @@ steps:
   commands:
   - ./gradlew :mobile-analytics-android:clean :mobile-analytics-android:install :mobile-analytics-android:artifactoryPublish
   when:
+    branch:
+    - master
     event:
     - push
 
