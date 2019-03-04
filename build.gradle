@@ -118,8 +118,8 @@ subprojects {
 
         // ---
 
-        baiduAnalyticsAndroidVersion = '1.0.0'
-        talkingdataAnalyticsAndroidVersion = '1.0.0'
+        baiduAnalyticsAndroidVersion = '3.9.1.1'
+        talkingdataAnalyticsAndroidVersion = '4.0.21'
 
         // ---
 
