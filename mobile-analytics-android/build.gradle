@@ -53,8 +53,16 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    baiduImplementation "io.github.v7lin:baidu-analytics-android:${baiduAnalyticsAndroidVersion}"
-    talkingdataImplementation "io.github.v7lin:talkingdata-analytics-android:${talkingdataAnalyticsAndroidVersion}"
+    if (FLAVOR_NAME != null) {
+        if (FLAVOR_NAME == 'baidu') {
+            implementation "io.github.v7lin:baidu-analytics-android:${baiduAnalyticsAndroidVersion}"
+        } else if (FLAVOR_NAME == 'talkingdata') {
+            implementation "io.github.v7lin:talkingdata-analytics-android:${talkingdataAnalyticsAndroidVersion}"
+        }
+    } else {
+        baiduImplementation "io.github.v7lin:baidu-analytics-android:${baiduAnalyticsAndroidVersion}"
+        talkingdataImplementation "io.github.v7lin:talkingdata-analytics-android:${talkingdataAnalyticsAndroidVersion}"
+    }
 }
 
 apply from: '../publish.gradle'
